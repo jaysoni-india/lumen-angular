@@ -1,19 +1,21 @@
 <?php
 
+$prefix = env('API_PREFIX');
+
 $router->get('/', function () use ($router) {
     // return $router->app->version();
     return view('index');
 });
 
-$router->group(['prefix' => 'main55'], function() use ($router) {
+$router->group(['prefix' => $prefix ], function() use ($router) {
 
-        $router->post('login', 'AuthController@authenticate');
+        $router->post('login', 'AuthController@login');
         $router->post('register', 'AuthController@register');
 
 });
 
-$router->group([ 'middleware' => 'jwt.auth', 'prefix' => 'main55/auth' ],function() use ($router) {
+$router->group([ 'middleware' => 'jwt.auth', 'prefix' => $prefix.'/auth' ],function() use ($router) {
 
-          $router->get('users', 'ExampleController@users');
+          $router->get('users', 'UserController@all');
 
 });

@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
+  public formData = { hi:'jay'};
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  FormData(x){
+    console.log(x);
+    this.formData = x;
+    return false;
   }
 
 }

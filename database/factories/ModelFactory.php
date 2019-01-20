@@ -12,14 +12,24 @@
 */
 
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+// $factory->define(App\User::class, function (Faker\Generator $faker) {
 
-    return [
+//     return [
 
-      'name'     => $faker->name,
-      'email'    => $faker->unique()->email,
-      'password' => app('hash')->make('12345')
+//       'name'     => $faker->name,
+//       'email'    => $faker->unique()->email,
+//       'password' => app('hash')->make('12345')
 
-    ];
+//     ];
+
+// });
+
+$factory->define(App\Event::class, function (Faker\Generator $faker) {
+
+  return [
+
+    'organised_by'     => $faker->name,
+    'details'    => $faker->paragraph
+  ];
 
 });

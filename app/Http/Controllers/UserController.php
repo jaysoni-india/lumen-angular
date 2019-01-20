@@ -8,10 +8,14 @@ use App\User;
 class UserController extends Controller
 {
 
-    public function all(Request $r)
+    public function members()
+    {            
+         return User::all();
+    }
+
+    public function user(Request $r)
     {
             return $r->auth;
-            // return User::all();
     }
 
 }

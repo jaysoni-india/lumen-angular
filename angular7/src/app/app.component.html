@@ -1,20 +1,28 @@
-
 <nav class="navbar navbar-expand-sm bg-info">
 <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="#" routerLink="" class="nav-link">Home </a>
-      </li>
-       <li class="nav-item">
-          <a  routerLink="/login" class="nav-link" href="#">Login</a>
+        <a href="#" routerLink="/" class="nav-link">Home </a>
       </li>
       <li class="nav-item">
-        <a routerLink="/register" class="nav-link" href="#">Register</a>
+          <a href="#" routerLink="/members" class="nav-link">Members</a>
       </li>
+      <li>
+          <a href="#" class="nav-link" routerLink="/events">Events</a>
+      </li>
+      <li class="nav-item" *ngIf="!loginStatus" >
+           <a  routerLink="/login" class="nav-link" href="#">Login</a>
+      </li>
+       <li class="nav-item" *ngIf="!loginStatus" >
+          <a routerLink="/register" class="nav-link" href="#">Register</a>
+       </li>
+        <li *ngIf="loginStatus" >
+            <a (click)="logoutUser()"  class="nav-link" href="#logout" >Logout</a>
+        </li>
 </ul>
 </nav>
 
 
-<div class="container">
+<div class="container pt-5">
   <router-outlet></router-outlet>
 </div>
 

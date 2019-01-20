@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+      // console.log(atob(btoa('sladjflsdf')));
+
+      //localStorage.setItem(2, 'Value');
+      //localStorage.getItem(2);
+
+    // console.log(localStorage.clear());
+
+  }
 
   ngOnInit() {
   }

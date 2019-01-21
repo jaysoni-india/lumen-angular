@@ -1,0 +1,10 @@
+<h3>Events</h3>
+
+<br>
+
+<ul class="list-group" *ngFor="let event of events">
+    <li class="list-group-item">
+      {{event.details}}<br>
+      <b>Organized By : </b> {{event.organised_by}}
+    </li>
+</ul>

@@ -10,7 +10,7 @@ class UserController extends Controller
 
     public function members()
     {            
-         return User::all();
+         return User::take(8)->get();
     }
 
     public function user(Request $r)

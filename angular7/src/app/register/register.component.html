@@ -1,28 +1,26 @@
-
 <div class="row">
   <div class="col-md-6 mx-auto">
     <div class="card rounded-0">
       <div class="card-header">
         <h3 class="mb-0">Register</h3>
       </div>
-      {{ formData | json }}
       <div class="card-body">
-        <form action="#" (submit)="return FormData(this);" class="form">
+        <form action="#" (submit)="registerUser()" class="form">
             <div class="form-group">
                 <label for="">Name</label>
-                <input type="text" class="form-control" required>
+                <input [(value)]="user.name" name="name" type="text" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="">Email </label>
-                <input value="sonijay435@gmail.com" type="email" class="form-control rounded-0" required>
+                <input [(value)]="user.email" type="email" class="form-control rounded-0" required>
               </div>
               <div class="form-group">
                   <label for="">Password </label>
-                  <input type="password" class="form-control rounded-0" required>
+                  <input [(value)]="user.password" type="password" class="form-control rounded-0" required>
               </div>
               <div class="form-group">
                 <label for="">Confirm Password </label>
-                <input type="password" class="form-control rouded-0" required>
+                <input [(value)]="user.confirm_password" type="password" class="form-control rouded-0" required>
               </div>
 
               <div class="form-group">

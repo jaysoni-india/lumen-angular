@@ -9,24 +9,24 @@
       <li>
           <a href="#" class="nav-link" routerLink="/events">Events</a>
       </li>
-      <li class="nav-item" *ngIf="!loginStatus" >
+      <li class="nav-item" *ngIf="!_authService.loggedIn()">
            <a  routerLink="/login" class="nav-link" href="#">Login</a>
       </li>
-       <li class="nav-item" *ngIf="!loginStatus" >
+       <li class="nav-item" *ngIf="!_authService.loggedIn()" >
           <a routerLink="/register" class="nav-link" href="#">Register</a>
        </li>
-        <li *ngIf="loginStatus" >
+        <li *ngIf="_authService.loggedIn()" class="nav-item" >
             <a (click)="logoutUser()"  class="nav-link" href="#logout" >Logout</a>
         </li>
 </ul>
 </nav>
 
 
-<div class="container pt-5">
+<div class="container pt-5" style="min-height:540px;">
   <router-outlet></router-outlet>
 </div>
 
-<div class="footer p-2 text-center text-white bg-info">
+<div class="footer p-2 mt-3 text-center text-white bg-info">
   <p>
         Sample Jwt Auth Application
   </p>

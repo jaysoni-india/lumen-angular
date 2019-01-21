@@ -4,5 +4,5 @@
 </div>
 <p>
   <br>
-  Welcome user try login logout functionality of app.
+  Welcome {{ this.auth.loggedIn() ? user.user.name+' try logout functionality' : 'user, try loginfunctionality'}} functionality of app.
 </p>

@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  user:any;
+
+  constructor(private auth:AuthService) {
+
+    if( this.auth.loggedIn() ){
+      this.user = JSON.parse(atob(localStorage.getItem('token').split('.')[1]));
+    }
 
       // console.log(atob(btoa('sladjflsdf')));
 

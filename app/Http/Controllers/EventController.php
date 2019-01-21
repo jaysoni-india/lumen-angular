@@ -10,7 +10,7 @@ class EventController extends Controller
 
     public function events(Request $r)
     {      
-      return Event::all();
+      return Event::take(5)->get();
     }
 
 }

@@ -63,7 +63,7 @@ class AuthController extends BaseController
           
             return response()->json([
                 'error' => 'Email does not exist.'
-            ], 400);
+            ]);
         }
        
         if (Hash::check($this->request->input('password'), $user->password)) {
@@ -74,6 +74,6 @@ class AuthController extends BaseController
         
         return response()->json([
             'error' => 'Email or password is wrong.'
-        ], 400);
+        ]);
     }
 }

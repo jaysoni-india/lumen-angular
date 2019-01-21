@@ -9,7 +9,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { MembersComponent } from './members/members.component';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MembersComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,13 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthGuard,AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
